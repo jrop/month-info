@@ -1,0 +1,16 @@
+{
+  "name": "month-info",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "istanbul cover test/index.js",
+    "test": "node test/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "istanbul": "^0.4.5"
+  }
+}
