@@ -1,5 +1,7 @@
 'use strict'
 
+const DAY_MS = 86400000
+
 //
 // Calculate the first and last days of a given month
 //
@@ -8,7 +10,7 @@ function range(month, year) {
 	const nextYear = month + 1 > 11 ? year + 1 : year
 
 	const first = new Date(year, month, 1)
-	const lastMs = new Date(nextYear, nextMonth, 1).getTime() - 86400000
+	const lastMs = new Date(nextYear, nextMonth, 1).getTime() - DAY_MS
 	const last = new Date(lastMs)
 
 	return { first, last }
@@ -24,12 +26,14 @@ function month(month, year) {
 		.fill(null)
 		.map(() => new Array(7).fill(null))
 
-	let t = first.getTime()
-	while (t <= last.getTime()) {
-		const curr = new Date(t)
-		const week = Math.floor(((curr.getDate() - 1) + first.getDay()) / 7)
-		info[week][curr.getDay()] = curr.getDate()
-		t += 8640000
+	const firstDayOnGrid = first.getTime() - first.getDay() * DAY_MS
+	for (let w = 0; w < 6; ++w) {
+		for (let d = 0; d < 7; ++d) {
+			const dayOnGrid = (w * 7 + d) * DAY_MS
+			const curr = new Date(firstDayOnGrid + dayOnGrid)
+			const currDay = curr.getDate()
+			info[w][d] = curr.getMonth() == month ? currDay : -currDay
+		}
 	}
 	return info
 }
