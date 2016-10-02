@@ -1,6 +1,6 @@
 {
   "name": "month-info",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,5 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "istanbul": "^0.4.5"
-  }
+  },
+  "repository": "jrop/month-info"
 }
