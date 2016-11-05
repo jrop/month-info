@@ -31,8 +31,8 @@ function month(month, year) {
 		for (let d = 0; d < 7; ++d) {
 			const dayOnGrid = (w * 7 + d) * DAY_MS
 			const curr = new Date(firstDayOnGrid + dayOnGrid)
-			const currDay = curr.getDate()
-			info[w][d] = curr.getMonth() == month ? currDay : -currDay
+			const currDay = curr.getUTCDate()
+			info[w][d] = curr.getUTCMonth() == month ? currDay : -currDay
 		}
 	}
 	return info
