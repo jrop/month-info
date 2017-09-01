@@ -1,5 +1,7 @@
 # month-info
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jrop/month-info.svg)](https://greenkeeper.io/)
+
 Return information about the shape of a month
 
 ```js
