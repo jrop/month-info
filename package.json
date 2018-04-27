@@ -1,18 +1,34 @@
 {
   "name": "month-info",
   "version": "0.0.4",
-  "description": "",
+  "description": "Return information about the shape of a month",
   "main": "index.js",
   "scripts": {
     "coverage": "istanbul cover test/index.js",
-    "test": "mocha test/index.js"
+    "lint": "eslint *.js && prettier -l *.js",
+    "lint:fix": "eslint --fix *.js && prettier --write *.js",
+    "precommit": "npm test && npm run lint",
+    "prepublish": "npm test && npm run lint",
+    "test": "nyc -r text -r html tape test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
-    "istanbul": "^0.4.5",
-    "mocha": "^3.1.2"
+    "date-fns": "^1.29.0",
+    "eslint": "^4.19.1",
+    "husky": "^0.14.3",
+    "nyc": "^11.7.1",
+    "prettier": "^1.12.1",
+    "tape": "^4.9.0"
   },
-  "repository": "jrop/month-info"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrop/month-info.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jrop/month-info/issues"
+  },
+  "homepage": "https://github.com/jrop/month-info#readme"
 }
