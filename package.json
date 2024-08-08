@@ -1,27 +1,24 @@
 {
   "name": "month-info",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Return information about the shape of a month",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "coverage": "istanbul cover test/index.js",
-    "lint": "eslint *.js && prettier -l *.js",
-    "lint:fix": "eslint --fix *.js && prettier --write *.js",
-    "precommit": "npm test && npm run lint",
-    "prepublish": "npm test && npm run lint",
-    "test": "nyc -r text -r html tape test.js"
+    "ci": "npx tsc && biome check . && biome format .",
+    "ci:fix": "biome check --write --organize-imports-enabled=true && biome format --write .",
+    "precommit": "npm run ci",
+    "prepublish": "npm run ci",
+    "test": "node test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
-    "date-fns": "^1.29.0",
-    "eslint": "^4.19.1",
-    "husky": "^0.14.3",
-    "nyc": "^11.7.1",
-    "prettier": "^1.12.1",
-    "tape": "^4.9.0"
+    "@biomejs/biome": "^1.8.3",
+    "@types/node": "^22.1.0",
+    "husky": "^9.1.4",
+    "typescript": "^5.5.4"
   },
   "repository": {
     "type": "git",

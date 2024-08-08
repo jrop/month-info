@@ -1,9 +1,0 @@
-extends: eslint:recommended
-parserOptions:
-  ecmaVersion: 8
-  sourceType: module
-env:
-  es6: true
-  node: true
-rules:
-  no-extra-semi: 'off'
